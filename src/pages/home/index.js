@@ -1,10 +1,14 @@
-import React, { Component } from 'react'
-import './home.css'
+import React from 'react';
+import Page from '../Page';
+import Constrainer from '../../components/constrainer';
+import './home.css';
 
 const Home = () => (
-    <div>
-        <h1>Hello. Yes, this is home.</h1>
-    </div>
+    <Page>
+        <Constrainer>
+            <h1>Hello. Yes, this is home.</h1>
+        </Constrainer>
+    </Page>
 );
 
 export default Home;

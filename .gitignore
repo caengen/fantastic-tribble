@@ -9,6 +9,7 @@ yarn.lock
 
 # production
 /build
+src/**/*.css
 
 # misc
 .DS_Store

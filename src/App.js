@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import Home from './pages/home'
-import About from './pages/about'
-import './App.css';
+import React from 'react';
+import { Route } from 'react-router-dom';
+import Home from './pages/home';
+import About from './pages/about';
+import Header from './components/header';
 
 const App = () => (
-  <div>
-    <header>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-    </header>
-
+  <div className="App">
+    <Header />
     <main>
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
