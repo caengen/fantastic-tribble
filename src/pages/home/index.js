@@ -6,7 +6,7 @@ import './home.css';
 const Home = () => (
     <Page>
         <Constrainer>
-            <h1>Hello. Yes, this is home.</h1>
+            <h1>Choose your own adventure</h1>
         </Constrainer>
     </Page>
 );

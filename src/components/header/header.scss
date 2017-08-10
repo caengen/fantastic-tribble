@@ -1,8 +1,9 @@
 @import 'styles/colors';
 
 .main-header {
-  background: $black;
+  background: $offwhite;
   padding: .75em 0;
+  border-bottom: 1px solid $light-grey;
 
   ul {
     display: flex;
@@ -16,6 +17,6 @@
   }
 
   a {
-    color: white;
+    color: $black;
   }
 }

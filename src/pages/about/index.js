@@ -6,7 +6,7 @@ import Constrainer from '../../components/constrainer';
 const About = () => (
     <Page>
         <Constrainer>
-            <h1>Christian Engen is a really cool guy.</h1>
+            <h1>Tell your Adventure.</h1>
         </Constrainer>
     </Page>
 );

@@ -7,7 +7,7 @@ const Footer = () => (
     <Constrainer>
       <ul>
         <li>
-          © 2017 Christian Andreas Engen
+          © 2017 Christian Engen
         </li>
       </ul>
     </Constrainer>
