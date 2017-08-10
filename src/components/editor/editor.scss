@@ -1,0 +1,9 @@
+@import 'styles/colors';
+
+.editor {
+  height: 30em;
+  max-height: 100%;
+  width: 40em;
+  margin: 0 auto;
+  border: 1px solid $light-grey;
+}
