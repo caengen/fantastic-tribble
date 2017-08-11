@@ -1,5 +1,8 @@
+@import 'styles/colors';
 .home {
+  background: $offwhite;
   h1 {
     text-align: center;
+    color: $black;
   } 
 }
