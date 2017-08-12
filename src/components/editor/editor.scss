@@ -1,0 +1,19 @@
+@import 'styles/colors';
+
+.ciao-editor {
+  background: white;
+  border: 1px solid $light-grey;
+  height: 50em;
+  margin: 0 auto;
+  max-height: 100%;
+  padding: 2em;
+  width: 40em;
+
+  .DraftEditor-root, .DraftEditor-editorContainer {
+    height: inherit;
+    
+    .public-DraftEditor-content {
+      min-height: 100%;
+    }
+  }
+}
