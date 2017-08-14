@@ -1,17 +1,45 @@
 @import 'styles/colors';
 
-.ciao-editor {
+.editor {
+  display: flex;
+  justify-content: center;
+
+  .editor-controls {
+    background: white;
+    border-top: 1px solid $light-grey;
+    border-left: 1px solid $light-grey;
+    border-bottom: 1px solid $light-grey;
+    display: flex;
+    flex-direction: column;
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+  }
+  .editor-control-item {
+    margin: 1em 0;
+
+    input {
+      display: none;
+    }
+    label {
+      margin: 0 1em;
+    }
+  }
+}
+
+.draft-editor-container {
   background: white;
   border: 1px solid $light-grey;
   height: 50em;
-  margin: 0 auto;
   max-height: 100%;
   padding: 2em;
   width: 40em;
 
   .DraftEditor-root, .DraftEditor-editorContainer {
     height: inherit;
-    
+
     .public-DraftEditor-content {
       min-height: 100%;
     }
