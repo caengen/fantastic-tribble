@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Editor, EditorState, RichUtils } from 'draft-js';
+import _ from 'lodash';
 import './editor.css';
 
 class CiaoEditor extends Component {
@@ -28,6 +29,7 @@ class CiaoEditor extends Component {
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
     this.createEditorControl = this.createEditorControl.bind(this);
+    this.updateEditorControl = this.updateEditorControl.bind(this);
   }
 
   handleKeyCommand(command) {
@@ -45,29 +47,54 @@ class CiaoEditor extends Component {
     this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, style));
   }
 
-  createEditorControl(control) {
+  createEditorControl(control, index) {
+    const baseClass = 'editor-control-item';
+    const className = control.toggled ? `${baseClass} is-selected` : baseClass;
+    const inputId = `EditorControlItem-${control.label}`;
     return (
-      <li className="editor-control-item" key={control.label}>
-        <label>
-          <input 
-            type="checkbox"
-            onClick={() => RichUtils.toggleInlineStyle(this.state.editorState, control.style)}
-          />
+      <li className={className} key={control.label}>
+        <input
+          id={inputId}
+          className="eci-input"
+          checked={control.toggled}
+          type="checkbox"
+          onClick={() => {
+            RichUtils.toggleInlineStyle(this.state.editorState, control.style);
+            this.updateEditorControl(control);
+          }}
+        />
+        <label className="eci-label" htmlFor={inputId}>
           {control.label}
         </label>
       </li>
     )
   }
 
+  updateEditorControl(control) {
+    const controls = this.state.editorControls;
+    const index = _.findIndex(controls, control);
+    this.setState({
+      editorControls: [
+        ...controls.slice(0, index),
+        {
+          ...control,
+          toggled: !control.toggled
+        },
+        ...controls.slice(index)
+      ]
+    });
+  }
+
   render() {
-    let editorControls = this.state.editorControls.map(this.createEditorControl);
+    const editorControls = this.state.editorControls.map(this.createEditorControl);
     return (
       <div className="editor">
-      <div className="editor-controls">
-      <ul>
-        {editorControls}
-      </ul>
-      </div>
+        <div className="editor-controls">
+          <h3>Styles</h3>
+          <ul>
+            {editorControls}
+          </ul>
+        </div>
         <div className="draft-editor-container">
           <Editor
             editorState={this.state.editorState}
