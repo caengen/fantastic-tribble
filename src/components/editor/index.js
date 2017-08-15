@@ -80,7 +80,7 @@ class CiaoEditor extends Component {
           ...control,
           toggled: !control.toggled
         },
-        ...controls.slice(index)
+        ...controls.slice(index + 1)
       ]
     });
   }
